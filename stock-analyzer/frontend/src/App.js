@@ -168,7 +168,7 @@ function App() {
                         : "orange",
                     fontWeight: "bold",
                   }}>
-                  {metrics.max_drawdown}
+                  {metrics.max_drawdown}%
                   </span>
                     
                 </p>
@@ -176,6 +176,9 @@ function App() {
               </div>
         </div>
       )}
+      <div class="disclaimer">
+        <p>This is not finnancial advice</p>
+      </div>
     </div>
   );
 }
