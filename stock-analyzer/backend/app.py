@@ -35,7 +35,7 @@ def calculate_metrics(ticker):
     
 
     data["Returns"] = data["Close"].pct_change()
-    mean_return = float(data["Returns"].mean() * 252)
+    mean_return = float((data["Close"].iloc[-1] - data["Close"].iloc[0])/data["Close"].iloc[0])
     volatility = float(data["Returns"].std() * np.sqrt(252))
     sharpe_ratio = float(mean_return / volatility) if volatility != 0 else 0.0
     current_price = float(data["Close"].iloc[-1])
@@ -53,9 +53,15 @@ def calculate_metrics(ticker):
 
     drawdown = (data['Close'] / rolling_max) - 1
 
+    rolling_max1 = stock['Close'].cummax()
+
+    drawdown1 = (stock['Close'] / rolling_max1) - 1
+
+    max_drawdown1 = drawdown1.values.min()  # most negative value
+    max_drawdown1=round(max_drawdown1 * 100, 2)
+
     max_drawdown = drawdown.values.min()  # most negative value
     max_drawdown=round(max_drawdown * 100, 2)  # return percent
-    print(max_drawdown)
     
     dates=[]
     dates=stock.reset_index()
@@ -76,7 +82,8 @@ def calculate_metrics(ticker):
         "dates": dates,
         "prices": finalprices,
         "beta": beta,
-        "max_drawdown": max_drawdown
+        "max_drawdown": max_drawdown,
+        "max_drawdown1": max_drawdown1
     }
     return metrics
 

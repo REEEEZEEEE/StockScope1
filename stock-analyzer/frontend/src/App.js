@@ -24,6 +24,8 @@ function App() {
     }
   };
 
+
+
   return (
     <div className="App">
       <div class ="top-title">
@@ -156,7 +158,7 @@ function App() {
               </div>
               <div class="item">
                 <p>
-                  <strong>5 Year Max Drawdown:</strong> 
+                  <strong>1 Year Max Drawdown:</strong> 
                 </p>
                 <p class="text">
                   <span style={{  
@@ -169,6 +171,25 @@ function App() {
                     fontWeight: "bold",
                   }}>
                   {metrics.max_drawdown}%
+                  </span>
+                    
+                </p>
+              </div>
+              <div class="item">
+                <p>
+                  <strong>5 Year Max Drawdown:</strong> 
+                </p>
+                <p class="text">
+                  <span style={{  
+                    color:
+                      metrics.max_drawdown1 > 25
+                        ? "green"
+                        : metrics.max_drawdown1 < 15
+                        ? "red"
+                        : "orange",
+                    fontWeight: "bold",
+                  }}>
+                  {metrics.max_drawdown1}%
                   </span>
                     
                 </p>
