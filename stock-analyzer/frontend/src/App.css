@@ -97,7 +97,7 @@ button:hover {
 }
 
 .disclaimer {
-  position: absolute;
+  position: fixed;
   bottom:0px;
   color:#807e7e;
 }

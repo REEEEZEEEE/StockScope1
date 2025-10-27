@@ -7,6 +7,9 @@ function App() {
   const [ticker, setTicker] = useState("");
   const [metrics, setMetrics] = useState(null);
   const [error, setError] = useState("");
+  useEffect(() => {
+    document.title = "StockScope";
+  }, ["StockScope"]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +30,7 @@ function App() {
 
 
   return (
+    
     <div className="App">
       <div class ="top-title">
       <h1>Stock Analyzer</h1>
