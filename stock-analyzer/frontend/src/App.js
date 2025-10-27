@@ -13,7 +13,7 @@ function App() {
     setError("");
     setMetrics(null);
     try {
-      const response = await axios.post("http://127.0.0.1:5000/analyze", { ticker });
+      const response = await axios.post("https://stockscope1-2.onrender.com/analyze", { ticker });
       if (response.data.success) {
         setMetrics(response.data.metrics);
       } else {
@@ -168,7 +168,7 @@ function App() {
                         : "orange",
                     fontWeight: "bold",
                   }}>
-                  {metrics.max_drawdown}
+                  {metrics.max_drawdown}%
                   </span>
                     
                 </p>
@@ -176,6 +176,9 @@ function App() {
               </div>
         </div>
       )}
+      <div class="disclaimer">
+        <p>This is not finnancial advice</p>
+      </div>
     </div>
   );
 }

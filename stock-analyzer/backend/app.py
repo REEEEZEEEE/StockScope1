@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_admin import Admin
 from flask_cors import CORS
 from datetime import datetime
@@ -6,8 +6,25 @@ import yfinance as yf
 import numpy as np
 import pandas as pd
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__, static_folder="build", static_url_path="/")
+CORS(app)  # Optional but helpful during dev
+
+# --- Your API Endpoint Example ---
+@app.route("/api/info/<ticker>")
+def get_info(ticker):
+    return jsonify({"ticker": ticker, "message": "Backend Connected ✅"})
+
+
+# --- Serve React frontend ---
+@app.route("/")
+def index():
+    return send_from_directory(app.static_folder, "index.html")
+
+
+# For React Router Support:
+@app.errorhandler(404)
+def not_found(e):
+    return send_from_directory(app.static_folder, "index.html")
 
 def calculate_metrics(ticker):
     data = yf.download(ticker, period="1y")
