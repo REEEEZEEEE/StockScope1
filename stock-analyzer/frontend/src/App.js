@@ -198,7 +198,7 @@ function App() {
         </div>
       )}
       <div class="disclaimer">
-        <p>This is not finnancial advice</p>
+        <p>This is not financial advice</p>
       </div>
     </div>
   );
