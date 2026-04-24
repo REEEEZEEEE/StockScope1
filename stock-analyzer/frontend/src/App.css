@@ -79,6 +79,19 @@ button:hover {
   font-size: 1.2em;
 }
 
+.third-row {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right:10%;
+  padding-top: 20px;
+  color:#9A9A9A;
+}
+
+.third-row .text {
+  font-size: 1.2em;
+}
+
 .centered .item {
   margin: auto;
   color: #9A9A9A;

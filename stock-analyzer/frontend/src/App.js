@@ -16,7 +16,7 @@ function App() {
     setError("");
     setMetrics(null);
     try {
-      const response = await axios.post("https://stockscope1-2.onrender.com/analyze", { ticker });
+      const response = await axios.post("http://stockscopes.net/analyze", { ticker });
       if (response.data.success) {
         setMetrics(response.data.metrics);
       } else {
@@ -30,10 +30,10 @@ function App() {
 
 
   return (
-    
+
     <div className="App">
-      <div class ="top-title">
-      <h1>Stock Analyzer</h1>
+      <div class="top-title">
+        <h1>Stock Analyzer</h1>
       </div>
       <div class="search">
         <form onSubmit={handleSubmit}>
@@ -52,153 +52,208 @@ function App() {
       {metrics && (
         <div className="card">
           <div class="title">
-          <h2>{metrics.ticker}</h2>
+            <h2>{metrics.ticker}</h2>
           </div>
           <div class="centered">
             <div class="item">
               <p><strong>Current Price:</strong></p>
               <div class="price-current">
-              <p class="text"> ${metrics.current_price}</p> 
+                <p class="text"> ${metrics.current_price}</p>
               </div>
             </div>
             <div class="item">
               <p><strong>Annual Return:</strong></p>
-              <p class="text"> 
-                <span style={{  
+              <p class="text">
+                <span style={{
                   color:
                     metrics.annual_return > 15
                       ? "green"
                       : metrics.annual_return < 7
-                      ? "red"
-                      : "orange",
+                        ? "red"
+                        : "orange",
                   fontWeight: "bold",
                 }}>
-                {metrics.annual_return}%
+                  {metrics.annual_return}%
                 </span>
               </p>
             </div>
             <div class="item">
               <p><strong>Volatility:</strong></p>
               <p class="text">
-              <span style={{  
+                <span style={{
                   color:
                     metrics.volatility > 20
                       ? "green"
                       : metrics.volatility < 10
-                      ? "red"
-                      : "orange",
+                        ? "red"
+                        : "orange",
                   fontWeight: "bold",
                 }}>
-                {metrics.volatility}%
+                  {metrics.volatility}%
                 </span>
               </p>
             </div>
             <div class="item">
               <p>
-                <strong>Sharpe Ratio:</strong> 
+                <strong>Sharpe Ratio:</strong>
               </p>
               <p class="text">
-                <span style={{  
+                <span style={{
                   color:
                     metrics.sharpe_ratio > 1
                       ? "green"
                       : metrics.sharpe_ratio < 0.5
-                      ? "red"
-                      : "orange",
+                        ? "red"
+                        : "orange",
                   fontWeight: "bold",
                 }}>
-                {metrics.sharpe_ratio}
+                  {metrics.sharpe_ratio}
                 </span>
-                  
+
               </p>
             </div>
-            </div>
-            <div class="graph">
-                <Plot 
-                data={[
-                  {
-                    x: metrics.dates,
-                    y: metrics.prices,
-                    type: "scatter",
-                    mode: "lines",
-                    marker: { color: "blue" },
-                  },
-                ]}
-                layout={{
-                  title: "Stock Price Over Time",
-                  xaxis: { title: "Date",
-                          tickmode: "auto",
-                          nticks: 10,
-                           gridcolor: "#333"
-                          
-                   },
-                  yaxis: { title: "Price (USD)",
-                     gridcolor: "#333"
-                   },
-                  paper_bgcolor: "#151515",
-                  plot_bgcolor: "#151515",
-                  font: { color: "#ffffff" },
-                  responsive: true,
-                }}
-                style={{ width: "100%"}}
-              />
-            </div>
-              <div class="second-row">
-              <div class="item">
-                <p><strong>Beta:</strong></p>
-                <p class="text">
-                <span style={{  
-                    color:
-                      metrics.beta > 1
-                        ? "green"
-                        : metrics.beta < 1
+          </div>
+         
+          <div class="second-row">
+            <div class="item">
+              <p><strong>Beta:</strong></p>
+              <p class="text">
+                <span style={{
+                  color:
+                    metrics.beta > 1
+                      ? "green"
+                      : metrics.beta < 1
                         ? "red"
                         : "orange",
-                    fontWeight: "bold",
-                  }}>
+                  fontWeight: "bold",
+                }}>
                   {metrics.beta}
-                  </span>
-                </p>
-              </div>
-              <div class="item">
-                <p>
-                  <strong>1 Year Max Drawdown:</strong> 
-                </p>
-                <p class="text">
-                  <span style={{  
-                    color:
-                      metrics.max_drawdown > 25
-                        ? "green"
-                        : metrics.max_drawdown < 15
+                </span>
+              </p>
+            </div>
+            <div class="item">
+              <p>
+                <strong>1 Year Max Drawdown:</strong>
+              </p>
+              <p class="text">
+                <span style={{
+                  color:
+                    metrics.max_drawdown > 25
+                      ? "green"
+                      : metrics.max_drawdown < 15
                         ? "red"
                         : "orange",
-                    fontWeight: "bold",
-                  }}>
+                  fontWeight: "bold",
+                }}>
                   {metrics.max_drawdown}%
-                  </span>
-                    
-                </p>
-              </div>
-              <div class="item">
-                <p>
-                  <strong>5 Year Max Drawdown:</strong> 
-                </p>
-                <p class="text">
-                  <span style={{  
-                    color:
-                      metrics.max_drawdown1 > 25
-                        ? "green"
-                        : metrics.max_drawdown1 < 15
+                </span>
+
+              </p>
+            </div>
+            <div class="item">
+              <p>
+                <strong>5 Year Max Drawdown:</strong>
+              </p>
+              <p class="text">
+                <span style={{
+                  color:
+                    metrics.max_drawdown1 > 25
+                      ? "green"
+                      : metrics.max_drawdown1 < 15
                         ? "red"
                         : "orange",
-                    fontWeight: "bold",
-                  }}>
+                  fontWeight: "bold",
+                }}>
                   {metrics.max_drawdown1}%
-                  </span>
-                    
-                </p>
-              </div>
-              </div>
+                </span>
+
+              </p>
+            </div>
+          </div>
+          
+           <div class="graph">
+            <Plot
+              data={[
+                {
+                  x: metrics.dates,
+                  y: metrics.prices,
+                  type: "scatter",
+                  mode: "lines",
+                  marker: { color: "blue" },
+                },
+              ]}
+              layout={{
+                title: "Stock Price Over Time",
+                xaxis: {
+                  title: "Date",
+                  tickmode: "auto",
+                  nticks: 10,
+                  gridcolor: "#333"
+
+                },
+                yaxis: {
+                  title: "Price (USD)",
+                  gridcolor: "#333"
+                },
+                paper_bgcolor: "#151515",
+                plot_bgcolor: "#151515",
+                font: { color: "#ffffff" },
+                responsive: true,
+              }}
+              style={{ width: "100%" }}
+            />
+          </div>
+
+          <div class="third-row">
+            <div class="item">
+              <p><strong>1 Year Prediction:</strong></p>
+              <p class="text">
+                <span style={{
+                  color:
+                    metrics.pred_1y > metrics.current
+                      ? "green"
+                      : "red",
+                  fontWeight: "bold",
+                }}>
+                  {metrics.pred_1y.toFixed(2)}
+                </span>
+              </p>
+            </div>
+            <div class="item">
+              <p>
+                <strong>5 Year Prediction:</strong>
+              </p>
+              <p class="text">
+                <span style={{
+                  color:
+                    metrics.pred_5y > metrics.current
+                      ? "green"
+                      : "red",
+                  fontWeight: "bold",
+                }}>
+                  {metrics.pred_5y.toFixed(2)}
+                </span>
+
+              </p>
+            </div>
+            <div class="item">
+              <p>
+                <strong>10 Year Prediction:</strong>
+              </p>
+              <p class="text">
+                <span style={{
+                  color:
+                    metrics.pred_10y > metrics.current
+                      ? "green"
+                      : "red",
+                  fontWeight: "bold",
+                }}>
+                  {metrics.pred_10y.toFixed(2)}
+                </span>
+
+              </p>
+            </div>
+          </div>
         </div>
       )}
       <div class="disclaimer">
