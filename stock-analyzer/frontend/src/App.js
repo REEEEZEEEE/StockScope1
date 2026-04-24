@@ -16,7 +16,7 @@ function App() {
     setError("");
     setMetrics(null);
     try {
-      const response = await axios.post("http://stockscopes.net/analyze", { ticker });
+      const response = await axios.post("https://stockscopes.net//analyze", { ticker });
       if (response.data.success) {
         setMetrics(response.data.metrics);
       } else {
