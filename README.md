@@ -24,15 +24,14 @@ Link: https://stockscopes.net/
 ## Architecture and Technologies
 *List the core technologies, frameworks, and libraries used in this project.*
 
-- **Frontend:** [e.g., React.js, Vue.js, HTML5/CSS3]
-- **Backend:** [e.g., Node.js, Python/Django, Java/Spring Boot]
-- **Database:** [e.g., PostgreSQL, MongoDB, MySQL]
-- **Third-Party APIs:** [e.g., Alpha Vantage, Yahoo Finance API, Finnhub]
+- **Frontend:** [e.g., React.js, HTML5/CSS3]
+- **Backend:** [e.g., Node.js]
+- **Third-Party APIs:** [Yahoo Finance API]
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
-- [e.g., Node.js version 14.x or higher]
-- [e.g., Python 3.8+]
+- [Node.js version 14.x or higher]
+- [Python 3.8+]
 
 ## Installation
 Follow these steps to get a local development environment running:
@@ -91,7 +90,7 @@ Contributions are welcome and highly appreciated. To contribute to StockScope:
 Please ensure your code adheres to the existing style guidelines and includes appropriate tests.
 
 ## License
-Distributed under the [Insert License Name, e.g., MIT] License. See `LICENSE` for more information.
+Distributed under the [MIT] License. See `LICENSE` for more information.
 
 ## Contact
 Project Link: [https://github.com/REEEEZEEEE/StockScope1](https://github.com/REEEEZEEEE/StockScope1)
