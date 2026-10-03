@@ -18,9 +18,6 @@ StockScope is a comprehensive application designed for tracking, analyzing, and 
 ## Features
 - **Real-Time Market Data:** Fetches and processes up-to-date stock prices and market trends.
 - **Data Visualization:** Provides clear, interactive charts and graphs for historical and current performance analysis.
-- **Portfolio Tracking:** Allows users to input and monitor their personal investment portfolios.
-- **Custom Alerts:** Enables threshold-based notifications for price movements and volume changes.
-- **Secure Authentication:** Ensures user data and portfolio information remain private and secure.
 
 ## Architecture and Technologies
 *List the core technologies, frameworks, and libraries used in this project.*
@@ -34,7 +31,6 @@ StockScope is a comprehensive application designed for tracking, analyzing, and 
 Before you begin, ensure you have met the following requirements:
 - [e.g., Node.js version 14.x or higher]
 - [e.g., Python 3.8+]
-- [e.g., A valid API key for your chosen financial data provider]
 
 ## Installation
 Follow these steps to get a local development environment running:
