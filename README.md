@@ -3,6 +3,8 @@
 ## Overview
 StockScope is a comprehensive application designed for tracking, analyzing, and visualizing stock market data. This project provides users with actionable financial insights, leveraging real-time data processing and an intuitive user interface to help both retail and professional investors make informed decisions.
 
+Link: https://stockscopes.net/
+
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
